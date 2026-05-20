@@ -3,18 +3,345 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chrono Archives - Le Futur de l Organisation</title>
+    <title>Chrono Archives - Le Futur de l'Organisation</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        chrono: {
+                            dark: '#0f172a',
+                            darker: '#020617',
+                            neonBlue: '#38bdf8',
+                            neonPurple: '#818cf8',
+                            accent: '#f59e0b'
+                        }
+                    },
+                    backgroundImage: {
+                        'cyber-grid': "url(\"data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0h40v40H0V0zm1 1h38v38H1V1z' fill='%2338bdf8' fill-opacity='0.05' fill-rule='evenodd'/%3E%3C/svg%3E\")",
+                        'circuit-pattern': "url(\"data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cpath d='M0 0h80v80H0V0zm1 1h78v78H1V1z' stroke='%2338bdf8' stroke-opacity='0.1' stroke-width='2'/%3E%3Cpath d='M10 10h10v10H10V10zm0 60h10v10H10V70zm60 0h10v10H70V70zm0-60h10v10H70V10zM35 35h10v10H35V35z' fill='%2338bdf8' fill-opacity='0.1'/%3E%3Cpath d='M15 20v15H0v-2h13V20h2zm0 40V45H0v2h13v13h2zm50 0V45h15v2H67v13h-2zm0-40V5h15v2H67v13h-2zM20 15h15v2H20v-2zm0 50h15v2H20v-2zm40 0h15v2H60v-2zm0-50h15v2H60v-2zM35 33v-3h-2v3h-3v2h3v3h2v-3h3v-2h-3z' fill='%2338bdf8' fill-opacity='0.2'/%3E%3C/g%3E%3C/svg%3E\")"
+                    },
+                    boxShadow: {
+                        'neon-blue': '0 0 20px rgba(56, 189, 248, 0.3)',
+                        'neon-accent': '0 0 20px rgba(245, 158, 11, 0.3)'
+                    }
+                }
+            }
+        }
+    </script>
     <script src="https://unpkg.com/lucide@latest"></script>
     <style>
-        @import url(https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800&display=swap);
-        body { font-family: Outfit, sans-serif; background-color: #0f172a; color: #e2e8f0; }
-        .glass-card { background: rgba(15,23,42,0.6); backdrop-filter: blur(12px); border: 1px solid rgba(56,189,248,0.1); }
-        .form-input { background: rgba(30,41,59,0.5); border: 1px solid rgba(56,189,248,0.2); color: white; }
-        .text-gradient { background-clip: text; -webkit-background-clip: text; color: transparent; background-image: linear-gradient(to right, #38bdf8, #818cf8); }
+        @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800&display=swap');
+        body {
+            font-family: 'Outfit', sans-serif;
+            background-color: #0f172a;
+            color: #e2e8f0;
+        }
+        .glass-card {
+            background: rgba(15, 23, 42, 0.6);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(56, 189, 248, 0.1);
+        }
+        .form-input {
+            background: rgba(30, 41, 59, 0.5);
+            border: 1px solid rgba(56, 189, 248, 0.2);
+            color: white;
+        }
+        .form-input:focus {
+            box-shadow: 0 0 0 2px rgba(56, 189, 248, 0.5);
+            border-color: #38bdf8;
+        }
+        .text-gradient {
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            background-image: linear-gradient(to right, #38bdf8, #818cf8);
+        }
     </style>
 </head>
-<body>
-    <p>Chargement...</p>
+<body class="antialiased selection:bg-chrono-neonBlue/30">
+
+    <div class="bg-chrono-darker bg-cyber-grid text-white px-4 py-2 sm:px-6 lg:px-8 border-b border-chrono-neonBlue/20 relative z-50">
+        <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-center gap-x-4 gap-y-2 text-sm leading-6">
+            <p class="flex items-center gap-2 text-center sm:text-left">
+                <i data-lucide="cpu" class="w-4 h-4 text-chrono-neonBlue animate-pulse hidden sm:inline-block"></i>
+                <strong class="font-semibold text-chrono-neonBlue">Offre Spéciale</strong>
+                <span class="text-blue-100">Bénéficiez d'un pré-audit gratuit de 30 min avec nos experts ce mois-ci.</span>
+            </p>
+            <a href="#contact" class="flex-none rounded-full bg-chrono-neonBlue/10 px-3.5 py-1 text-sm font-semibold text-chrono-neonBlue shadow-neon-blue hover:bg-chrono-neonBlue/20 ring-1 ring-inset ring-chrono-neonBlue/50 transition-all hover:scale-105">
+                Profiter de l'offre <span aria-hidden="true">&rarr;</span>
+            </a>
+        </div>
+    </div>
+
+    <header class="sticky top-0 z-40 bg-chrono-dark/80 backdrop-blur-lg border-b border-white/5">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+            <div class="flex items-center gap-2">
+                <span class="text-xl font-extrabold text-gradient tracking-wider">CHRONO ARCHIVES</span>
+            </div>
+            <a href="#contact" class="hidden md:inline-flex items-center justify-center px-6 py-2.5 border border-chrono-accent/50 text-sm font-bold rounded-lg text-white bg-gradient-to-r from-orange-500 to-chrono-accent hover:from-orange-400 hover:to-yellow-500 transition duration-300 shadow-neon-accent relative overflow-hidden group">
+                <span class="relative z-10">Demander un Audit</span>
+            </a>
+        </div>
+    </header>
+
+    <section class="relative overflow-hidden pt-16 pb-24 lg:pt-24 lg:pb-32 bg-chrono-darker">
+        <div class="absolute inset-0 bg-circuit-pattern opacity-30"></div>
+        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[800px] bg-chrono-neonBlue/20 rounded-full blur-3xl opacity-20 -z-10"></div>
+        <div class="absolute bottom-0 right-0 w-[600px] h-[600px] bg-chrono-neonPurple/20 rounded-full blur-3xl opacity-20 -z-10"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <span class="inline-block py-1 px-3 rounded-full bg-chrono-neonBlue/10 border border-chrono-neonBlue/50 text-chrono-neonBlue text-sm font-semibold mb-6 shadow-neon-blue">
+                        <i data-lucide="zap" class="w-4 h-4 inline mr-1"></i> Expertise & Stratégie 4.0
+                    </span>
+                    <h1 class="text-5xl md:text-6xl font-extrabold tracking-tight mb-6 leading-tight text-white">
+                        Propulsez votre organisation dans <span class="text-gradient">le futur.</span>
+                    </h1>
+                    <p class="text-lg text-blue-200/80 mb-8 max-w-lg leading-relaxed">
+                        Formations, e-learning immersif et GED intelligente. Découvrez une méthode centrée sur la donnée pour construire les équipes performantes de demain.
+                    </p>
+                    <div class="flex items-center gap-6 text-blue-200/80 mb-8 lg:mb-0">
+                        <div class="flex items-center gap-2">
+                            <div class="w-12 h-12 rounded-xl bg-chrono-neonBlue/10 border border-chrono-neonBlue/30 flex items-center justify-center shadow-neon-blue">
+                                <i data-lucide="users" class="w-6 h-6 text-chrono-neonBlue"></i>
+                            </div>
+                            <div>
+                                <div class="font-bold text-xl text-white">+400</div>
+                                <div class="text-xs uppercase tracking-wider">Collaborateurs connectés</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="contact" class="glass-card rounded-2xl shadow-2xl p-8 relative overflow-hidden group">
+                    <div class="text-center mb-8">
+                        <h2 class="text-2xl font-bold text-white">Initialiser la connexion</h2>
+                        <p class="text-blue-300/70 text-sm mt-2">Échangez avec nos architectes de solutions. Sans engagement.</p>
+                    </div>
+
+                    <form id="leadForm" name="submit-to-google-sheet" class="space-y-5">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div>
+                                <label for="prenom" class="block text-xs font-semibold text-blue-300 uppercase tracking-wider mb-2">Prénom *</label>
+                                <input type="text" id="prenom" name="prenom" required class="form-input w-full px-4 py-3 rounded-lg focus:outline-none transition-all">
+                            </div>
+                            <div>
+                                <label for="nom" class="block text-xs font-semibold text-blue-300 uppercase tracking-wider mb-2">Nom *</label>
+                                <input type="text" id="nom" name="nom" required class="form-input w-full px-4 py-3 rounded-lg focus:outline-none transition-all">
+                            </div>
+                        </div>
+
+                        <div>
+                            <label for="email" class="block text-xs font-semibold text-blue-300 uppercase tracking-wider mb-2">Email professionnel *</label>
+                            <input type="email" id="email" name="email" required class="form-input w-full px-4 py-3 rounded-lg focus:outline-none transition-all">
+                        </div>
+
+                        <div>
+                            <label for="telephone" class="block text-xs font-semibold text-blue-300 uppercase tracking-wider mb-2">Téléphone</label>
+                            <input type="tel" id="telephone" name="telephone" class="form-input w-full px-4 py-3 rounded-lg focus:outline-none transition-all">
+                        </div>
+
+                        <div>
+                            <label for="entreprise" class="block text-xs font-semibold text-blue-300 uppercase tracking-wider mb-2">Entreprise *</label>
+                            <input type="text" id="entreprise" name="entreprise" required class="form-input w-full px-4 py-3 rounded-lg focus:outline-none transition-all">
+                        </div>
+
+                        <div>
+                            <label for="besoin" class="block text-xs font-semibold text-blue-300 uppercase tracking-wider mb-2">Votre besoin</label>
+                            <select id="besoin" name="besoin" class="form-input w-full px-4 py-3 rounded-lg focus:outline-none transition-all bg-chrono-dark">
+                                <option value="Formation & Conseil">Formation & Conseil Stratégique</option>
+                                <option value="Production e-Learning">Production e-Learning Immersif</option>
+                                <option value="Accompagnement Conseil">Accompagnement à la Transition</option>
+                                <option value="Archivage & GED">Solutions GED & Data</option>
+                                <option value="Autre">Autre demande</option>
+                            </select>
+                        </div>
+
+                        <button type="submit" id="submitBtn" class="w-full flex items-center justify-center py-4 px-4 border border-chrono-neonBlue/50 rounded-lg shadow-neon-blue text-base font-bold text-white bg-gradient-to-r from-cyan-600 to-chrono-neonBlue hover:from-chrono-neonBlue hover:to-cyan-600 transition-all duration-300 mt-8 relative overflow-hidden group">
+                            <span class="relative z-10 flex items-center">Être rappelé gratuitement <i data-lucide="chevron-right" class="ml-2 w-5 h-5"></i></span>
+                        </button>
+                    </form>
+
+                    <div id="successMessage" class="hidden absolute inset-0 glass-card bg-chrono-dark/95 flex-col items-center justify-center p-8 text-center z-20 backdrop-blur-xl">
+                        <div class="w-20 h-20 bg-green-900/30 border border-green-500 rounded-full flex items-center justify-center mb-6 shadow-[0_0_20px_rgba(34,197,94,0.3)]">
+                            <i data-lucide="check-circle-2" class="w-10 h-10 text-green-400"></i>
+                        </div>
+                        <h3 class="text-3xl font-bold text-white mb-2">Transmission réussie !</h3>
+                        <p class="text-blue-200">Nos experts analysent votre demande et vous recontacteront très prochainement.</p>
+                        <button onclick="resetForm()" class="mt-8 px-6 py-2 rounded-full border border-chrono-neonBlue/30 text-chrono-neonBlue font-medium hover:bg-chrono-neonBlue/10 transition-colors">Nouvelle demande</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-12 bg-chrono-dark border-y border-chrono-neonBlue/10 relative overflow-hidden">
+        <div class="absolute inset-0 bg-cyber-grid opacity-10"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center mb-10">
+                <h2 class="text-sm font-bold tracking-[0.2em] text-chrono-neonBlue uppercase">Data Insights (2022-2025)</h2>
+                <p class="mt-2 text-3xl font-bold text-white">L'impact quantifié.</p>
+            </div>
+            <div class="grid grid-cols-2 md:grid-cols-5 gap-6 text-center">
+                <div class="p-6 glass-card rounded-xl"><div class="text-4xl font-extrabold text-cyan-400 mb-1">+120</div><div class="text-sm text-blue-200/70 font-medium uppercase tracking-wider">Formations réalisées</div></div>
+                <div class="p-6 glass-card rounded-xl"><div class="text-4xl font-extrabold text-cyan-400 mb-1">48</div><div class="text-sm text-blue-200/70 font-medium uppercase tracking-wider">Clients & Partenaires</div></div>
+                <div class="p-6 glass-card rounded-xl"><div class="text-4xl font-extrabold text-amber-400 mb-1">96%</div><div class="text-sm text-blue-200/70 font-medium uppercase tracking-wider">Taux de satisfaction</div></div>
+                <div class="p-6 glass-card rounded-xl"><div class="text-4xl font-extrabold text-cyan-400 mb-1">+15</div><div class="text-sm text-blue-200/70 font-medium uppercase tracking-wider">Modules e-learning</div></div>
+                <div class="p-6 glass-card rounded-xl hidden md:block"><div class="text-4xl font-extrabold text-cyan-400 mb-1">+415</div><div class="text-sm text-blue-200/70 font-medium uppercase tracking-wider">Collaborateurs connectés</div></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-24 bg-chrono-darker relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center max-w-3xl mx-auto mb-20">
+                <h2 class="text-base text-chrono-neonBlue font-bold tracking-[0.2em] uppercase mb-4">Nos Modules d'Intervention</h2>
+                <p class="text-4xl leading-tight font-extrabold text-white sm:text-5xl">
+                    Solutions technologiques <span class="text-gradient">adaptées à vos défis.</span>
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="glass-card rounded-2xl p-8">
+                    <div class="w-14 h-14 bg-chrono-neonBlue/10 rounded-xl border border-chrono-neonBlue/30 flex items-center justify-center mb-6"><i data-lucide="graduation-cap" class="w-7 h-7 text-chrono-neonBlue"></i></div>
+                    <h3 class="text-xl font-bold text-white mb-4">Formation & Conseil Stratégique</h3>
+                    <p class="text-blue-200/70 text-sm leading-relaxed">Upgrade des compétences et conseil stratégique pour optimiser votre capital humain via des data-driven insights.</p>
+                </div>
+                <div class="glass-card rounded-2xl p-8">
+                    <div class="w-14 h-14 bg-chrono-neonPurple/10 rounded-xl border border-chrono-neonPurple/30 flex items-center justify-center mb-6"><i data-lucide="laptop-2" class="w-7 h-7 text-chrono-neonPurple"></i></div>
+                    <h3 class="text-xl font-bold text-white mb-4">Production e-Learning Immersif</h3>
+                    <p class="text-blue-200/70 text-sm leading-relaxed">Création de modules interactifs et immersifs next-gen pour former vos équipes à distance, en asynchrone.</p>
+                </div>
+                <div class="glass-card rounded-2xl p-8">
+                    <div class="w-14 h-14 bg-chrono-neonBlue/10 rounded-xl border border-chrono-neonBlue/30 flex items-center justify-center mb-6"><i data-lucide="rocket" class="w-7 h-7 text-chrono-neonBlue"></i></div>
+                    <h3 class="text-xl font-bold text-white mb-4">Accompagnement à la Transition</h3>
+                    <p class="text-blue-200/70 text-sm leading-relaxed">Suivi personnalisé pour la conduite du changement technologique et l'implémentation de nouvelles structures agiles.</p>
+                </div>
+                <div class="glass-card rounded-2xl p-8">
+                    <div class="w-14 h-14 bg-chrono-neonPurple/10 rounded-xl border border-chrono-neonPurple/30 flex items-center justify-center mb-6"><i data-lucide="database" class="w-7 h-7 text-chrono-neonPurple"></i></div>
+                    <h3 class="text-xl font-bold text-white mb-4">Solutions GED & Data</h3>
+                    <p class="text-blue-200/70 text-sm leading-relaxed">Architecture électronique des documents pour structurer, sécuriser et fluidifier l'accès à votre information stratégique.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-24 bg-chrono-dark relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center max-w-3xl mx-auto mb-20">
+                <h2 class="text-base text-chrono-accent font-bold tracking-[0.2em] uppercase mb-4">Notre Algorithme</h2>
+                <p class="mt-2 text-4xl font-extrabold text-white sm:text-5xl">Une méthode agile centrée sur l'humain.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 md:gap-8">
+                <div class="text-center">
+                    <div class="w-20 h-20 mx-auto bg-chrono-dark border-2 border-chrono-neonBlue text-chrono-neonBlue rounded-2xl flex items-center justify-center mb-6"><i data-lucide="scan-search" class="w-8 h-8"></i></div>
+                    <h3 class="text-xl font-bold text-white mb-3">1. Audit & Analyse Data</h3>
+                    <p class="text-sm text-blue-200/70 leading-relaxed">Scan complet de vos besoins, culture et contraintes techniques avant toute modélisation.</p>
+                </div>
+                <div class="text-center">
+                    <div class="w-20 h-20 mx-auto bg-chrono-dark border-2 border-chrono-neonPurple text-chrono-neonPurple rounded-2xl flex items-center justify-center mb-6"><i data-lucide="network" class="w-8 h-8"></i></div>
+                    <h3 class="text-xl font-bold text-white mb-3">2. Co-Conception Agile</h3>
+                    <p class="text-sm text-blue-200/70 leading-relaxed">Vos équipes participent au design de la solution. C'est votre architecture, pas la nôtre.</p>
+                </div>
+                <div class="text-center">
+                    <div class="w-20 h-20 mx-auto bg-chrono-dark border-2 border-chrono-neonBlue text-chrono-neonBlue rounded-2xl flex items-center justify-center mb-6"><i data-lucide="rocket" class="w-8 h-8"></i></div>
+                    <h3 class="text-xl font-bold text-white mb-3">3. Déploiement & Suivi</h3>
+                    <p class="text-sm text-blue-200/70 leading-relaxed">Intégration fluide et présence continue post-livraison. Le résultat nous engage.</p>
+                </div>
+                <div class="text-center">
+                    <div class="w-20 h-20 mx-auto bg-chrono-dark border-2 border-chrono-accent text-chrono-accent rounded-2xl flex items-center justify-center mb-6"><i data-lucide="bar-chart-4" class="w-8 h-8"></i></div>
+                    <h3 class="text-xl font-bold text-white mb-3">4. Mesure d'Impact ROI</h3>
+                    <p class="text-sm text-blue-200/70 leading-relaxed">KPIs clairs, monitoring régulier et itérations continues pour maximiser la performance.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-24 relative overflow-hidden bg-gradient-to-br from-slate-900 via-chrono-darker to-chrono-darker">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+            <i data-lucide="quote" class="w-16 h-16 text-chrono-neonBlue/50 mx-auto mb-8"></i>
+            <blockquote class="text-2xl md:text-4xl font-medium leading-relaxed mb-12 text-white">
+                "<span class="text-gradient font-bold">CHRONO CONSEILS</span> a décodé nos enjeux instantanément. En quelques semaines, ils ont installé une véritable dynamique d'apprentissage connectée, impossible à réaliser seuls."
+            </blockquote>
+            <div class="flex flex-col items-center justify-center">
+                <div class="font-bold text-xl text-white">Sara Belghiti</div>
+                <div class="text-chrono-accent text-sm tracking-wider uppercase">Academy Manager</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20 bg-chrono-darker border-t border-chrono-neonBlue/10 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center mb-12">
+                <h2 class="text-xl font-bold text-white uppercase tracking-widest">Ils nous font confiance</h2>
+                <p class="text-blue-200/50 mt-2 text-sm">L'écosystème de l'innovation.</p>
+            </div>
+
+            <div class="flex flex-wrap justify-center items-center gap-8 md:gap-16 text-blue-200">
+                <span class="font-bold text-xl">UM6P</span>
+                <span class="font-bold text-xl">BANK AL-MAGHRIB</span>
+                <span class="font-bold text-xl">AXA ASSURANCE</span>
+                <span class="font-bold text-xl">TANGER MED</span>
+                <span class="font-bold text-xl">AL OMRANE</span>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-chrono-darker text-blue-200/50 py-12 border-t border-white/5">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center">
+            <div class="flex items-center gap-2 mb-4 md:mb-0">
+                <i data-lucide="cpu" class="w-5 h-5 text-chrono-neonBlue"></i>
+                <span class="text-white font-bold tracking-wider text-sm">CHRONO ARCHIVES <span class="text-chrono-neonBlue">v4.0</span></span>
+            </div>
+            <p class="text-sm">© 2026 Chrono Conseils. Architecture Future.</p>
+        </div>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbwEEDx_ZtfiypaeTFQIdCUUdW-NgYyyqB5q10MY04Hn7XyBbf_gu3nw2skMzD9BDwXtxw/exec';
+        const form = document.forms['submit-to-google-sheet'];
+        const submitBtn = document.getElementById('submitBtn');
+        const successMessage = document.getElementById('successMessage');
+
+        form.addEventListener('submit', e => {
+            e.preventDefault();
+            const originalBtnText = submitBtn.innerHTML;
+            submitBtn.innerHTML = '<i data-lucide="loader-2" class="w-5 h-5 animate-spin mr-2"></i> Initialisation du transfert...';
+            submitBtn.disabled = true;
+            submitBtn.classList.add('opacity-75', 'cursor-not-allowed');
+            lucide.createIcons();
+
+            fetch(scriptURL, { method: 'POST', body: new FormData(form) })
+                .then(() => {
+                    successMessage.classList.remove('hidden');
+                    successMessage.classList.add('flex');
+                    submitBtn.innerHTML = originalBtnText;
+                    submitBtn.disabled = false;
+                    submitBtn.classList.remove('opacity-75', 'cursor-not-allowed');
+                    form.reset();
+                    lucide.createIcons();
+                })
+                .catch(error => {
+                    console.error('Error!', error.message);
+                    alert("Erreur de connexion au serveur. Veuillez réessayer.");
+                    submitBtn.innerHTML = originalBtnText;
+                    submitBtn.disabled = false;
+                    submitBtn.classList.remove('opacity-75', 'cursor-not-allowed');
+                    lucide.createIcons();
+                });
+        });
+
+        function resetForm() {
+            successMessage.classList.add('hidden');
+            successMessage.classList.remove('flex');
+        }
+    </script>
 </body>
 </html>
